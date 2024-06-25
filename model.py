@@ -2,6 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
+
 class SplashCNN(nn.Module):
     def __init__(self, num_images, num_champs=167):
         super().__init__()
@@ -19,7 +20,6 @@ class SplashCNN(nn.Module):
         self.dropout = nn.Dropout(0.5)
         self.fc2 = nn.Linear(512, NUM_CHAMPIONS)
 
-       
 
     def forward(self, x):
         x = self.pool1(F.relu(self.conv1(x)))
